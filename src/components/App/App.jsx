@@ -18,10 +18,12 @@ export const App = () => {
   return <>Success</>; */
 
   return (
-    <Switch>
-      <Chat exact path="/" component={Chat} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/login" component={Login} />
-    </Switch>
+    <div className="app">
+      <Switch>
+        <Chat exact path="/" component={Chat} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </div>
   );
 };

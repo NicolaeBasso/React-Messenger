@@ -1,1 +1,1 @@
-export const Login = () => <>Login</>;
+export * from './Login';
