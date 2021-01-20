@@ -1,7 +1,9 @@
 //import { fb } from 'service';
 //import { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { useAuth, useResolved } from 'hooks';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { Login, Signup, Chat } from 'components';
+import { useEffect } from 'react';
 
 export const App = () => {
   /* useEffect(() => {
@@ -16,6 +18,20 @@ export const App = () => {
   }, []);
 
   return <>Success</>; */
+
+  const history = useHistory();
+  const { authUser } = useAuth();
+  const authResolved = useResolved(authUser);
+
+  useEffect(() => {
+    if (authResolved) {
+      history.push(!!authUser ? '/' : '/login');
+    }
+  }, [authUser, authResolved, history]);
+
+  /*useEffect(() => {
+    console.log('AUTH USER: ', authUser);
+  }, [authUser]);*/
 
   return (
     <div className="app">
