@@ -1,6 +1,6 @@
 import { fb } from 'service';
-import { createContext, useState, useEffect, useContext } from 'react';
-import { deleteChat, getMessages, leaveChat, newChat } from 'react-chat-engine';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { newChat, leaveChat, getMessages, deleteChat } from 'react-chat-engine';
 
 export const ChatContext = createContext();
 
@@ -32,6 +32,8 @@ export const ChatProvider = ({ children, authUser }) => {
     });
   };
 
+  // Set the chat config once the
+  // authUser has initialized.
   useEffect(() => {
     if (authUser) {
       fb.firestore
@@ -41,7 +43,7 @@ export const ChatProvider = ({ children, authUser }) => {
           setChatConfig({
             userSecret: authUser.uid,
             avatar: snap.data().avatar,
-            userName: snap.data.userName,
+            userName: snap.data().userName,
             projectID: 'e353b7f3-7c0a-4246-a176-b3fe324b9170',
           });
         });
