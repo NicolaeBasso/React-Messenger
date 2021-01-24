@@ -24,9 +24,7 @@ export const ChatAvatar = ({ chat, username, className }) => {
     <Image className={className || 'chat-list-avatar'} src={avatar} />
   ) : (
     <div className={className || 'empty-avatar'}>
-      {chat.people
-        .find(p => p.person.username !== chatConfig.userName)
-        .person.username[0].toUpperCase()}
+      {username[0].toUpperCase()}
     </div>
   );
 };

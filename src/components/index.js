@@ -8,3 +8,5 @@ export * from './FormField';
 export * from './ChatAvatar';
 export * from './ChatToolbar';
 export * from './SearchUsers';
+export * from './ChatInput';
+export * from './MessageList';
