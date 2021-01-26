@@ -62,6 +62,7 @@ export const RailHeader = () => {
           onClick={() => fb.auth.signOut()}
           className="sign-out"
           name="sign out"
+          color="olive"
         />
         {configResolved && !!chatConfig ? (
           <div className="current-user-info">
